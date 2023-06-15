@@ -1,0 +1,15 @@
+Sub ReplaceDiv0WithIfError()
+    Dim rng As Range
+    Dim cell As Range
+    
+    ' Set the range to the cells you want to search for #DIV/0! error
+    Set rng = Range("C5:AQ1402") ' Modify the range as per your data
+    
+    ' Loop through each cell in the range and replace #DIV/0! error with IFERROR formula
+    For Each cell In rng
+         If cell.Text = "#DIV/0!" Then
+            cell.Formula = "=IFERROR(" & cell.Offset(0, -1).Address & ", 0)"
+        End If
+    Next cell
+End Sub
+
