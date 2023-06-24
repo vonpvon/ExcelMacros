@@ -1,0 +1,8 @@
+Sub ReplaceDashWithBlank()
+    Dim rng As Range
+    For Each rng In ActiveSheet.UsedRange
+        If rng.Value = "-" Then
+            rng.Value = ""
+        End If
+    Next rng
+End Sub
